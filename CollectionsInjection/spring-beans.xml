@@ -1,0 +1,50 @@
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+		
+	<bean id="Person" class="com.beans.Person">
+		<property name="firstName" value="manoj" />
+		<property name="lastName" value="kris" />
+	</bean>
+
+	<!-- collections injection -->
+	<bean id="collectionsInjector" class="com.collections.CollectionsInjector">
+
+		<property name="testList">
+			<list>
+				<value>val1</value>
+				<value>val2</value>
+			</list>
+		</property>
+
+
+		<property name="testSet">
+			<set>
+				<value>one</value>
+				<value>one</value>
+				<value>two</value>
+			</set>
+		</property>
+
+		<property name="testMap">
+			<map>
+				<entry key="one" value="val1"></entry>
+				<entry key="two" value="val2"></entry>
+				<entry key="three" value="val3"></entry>
+			</map>
+		</property>
+
+			
+		
+	</bean>
+	
+<!-- via annotations. Need to import the above xsd -->
+		<context:annotation-config>	
+	<bean id="autoWireBean" class="com.autowire.AutoWireBean" />
+</context:annotation-config>
+
+</beans>
